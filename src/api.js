@@ -1,12 +1,15 @@
 import axios from "axios";
 
-const ncNewsApi = axios.create({
-    baseURL: `https://nc-news-smxe.onrender.com/api`,
-  });
+const ncNewsBaseUrl = axios.create({ baseURL: "https://nc-news-smxe.onrender.com"});
 
-  export const getUsers = () => {
-    return ncNewsApi.get(`/users`);
-  };
+export const getArticles = () => {
+    return ncNewsBaseUrl.get("/api/articles").then((response) => {
+    
+        return response.data.articles
+    })
+}
+
+
 
 
 
