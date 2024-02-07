@@ -1,12 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 
 
-function SingleArticle({singleArticle}) {
-    console.dir(singleArticle);
+
+function ArticleCard({singleArticle}) {
+    
+    
+
     return (
         <Card className="articleCard" style={{ width: '18rem' }}>
           <Card.Img variant="top" src={singleArticle.article_img_url} />
@@ -18,10 +22,13 @@ function SingleArticle({singleArticle}) {
             <ListGroup.Item>Topic: {singleArticle.topic}</ListGroup.Item>
           </ListGroup>
           <Card.Body>
-            <Card.Link href="#">Read Article</Card.Link>
+            <Link to={`/article/${singleArticle.article_id}`}>
+            <Button variant="primary">Read Article</Button>  
+            </Link>
+            
           </Card.Body>
         </Card>
       );
 }
 
-export default SingleArticle;
+export default ArticleCard;
