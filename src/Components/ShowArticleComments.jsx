@@ -25,7 +25,7 @@ function ShowArticleComments () {
                     return (
                         
                         <CommentCard className="comment-cards"
-                        singleComment={singleComment}
+                        singleComment={singleComment} 
                         />
                         
                     )
