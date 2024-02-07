@@ -12,6 +12,12 @@ export const getArticlesById = (articleId) => {
   return ncNewsBaseUrl.get(`/api/articles/${articleId}`).then((response) => {
     return response.data
 })
+};
+
+export const getCommentsById = (articleId) => {
+  return ncNewsBaseUrl.get(`/api/articles/${articleId}/comments`).then((response) => {
+    return response.data.comments
+  })
 }
 
 

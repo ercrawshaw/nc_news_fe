@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../Components/Header";
 import NavBar from "../Components/NavBar";
 import ShowArticle from "../Components/ShowArticle";
-
+import ShowArticleComments from "../Components/ShowArticleComments";
 
 
 function Article () {
@@ -11,8 +11,7 @@ function Article () {
       <Header />
       <NavBar />
       <ShowArticle />
-      
-     
+      <ShowArticleComments />
 
     </div>
   )
