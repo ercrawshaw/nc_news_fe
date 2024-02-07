@@ -18,7 +18,12 @@ export const getCommentsById = (articleId) => {
   return ncNewsBaseUrl.get(`/api/articles/${articleId}/comments`).then((response) => {
     return response.data.comments
   })
-}
+};
+
+export const patchCommentVote = (article_id) => {
+  return ncNewsBaseUrl.patch(`/api/comments/${article_id}`, {inc_votes: 1})
+};
+
 
 
 

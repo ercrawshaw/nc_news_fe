@@ -11,16 +11,20 @@ import Col from 'react-bootstrap/Col';
 function ShowArticle () {
     const {id} = useParams();
     const [currentArticle, setCurrentArticle] = useState([]);
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         getArticlesById(id)
         .then((res) => {
             setCurrentArticle(res)
+            setIsLoading(false)
         })
         .catch((err) => {
             console.log(err)
         })
     }, []);
+
+    if (isLoading === true) return <p>Page is Loading...</p>
 
     const date = currentArticle.created_at
     const formattedDate = dateFormat(date, "dS mmmm yyyy")
