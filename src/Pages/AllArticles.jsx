@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getArticles } from "../api";
-import SingleArticle from "../Components/SingleArticle";
+import ArticleCard from "../Components/ArticleCard";
 import Header from "../Components/Header";
 import '../App.css'
 
@@ -24,7 +24,7 @@ return (
             {articles.map((singleArticle) => {
                 return (
                     
-                    <SingleArticle className="cards"
+                    <ArticleCard className="cards"
                     singleArticle={singleArticle}
                     />
                     

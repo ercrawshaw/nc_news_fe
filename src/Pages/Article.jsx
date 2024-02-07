@@ -1,19 +1,21 @@
-import Container from 'react-bootstrap/Container';
-import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
-import UserContext from '../Components/UserContext';
-
-const Article = () => {
-
-  document.title = "NC News | Article"
+import React from "react";
+import Header from "../Components/Header";
+import NavBar from "../Components/NavBar";
+import ShowArticle from "../Components/ShowArticle";
 
 
 
+function Article () {
   return (
-    <section>
-        <h1>Article</h1>
-    </section>
-  )
-}
+    <div className='Article'>
+      <Header />
+      <NavBar />
+      <ShowArticle />
+      
+     
 
-export default Article
+    </div>
+  )
+};
+
+export default Article;

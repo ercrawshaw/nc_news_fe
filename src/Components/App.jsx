@@ -18,7 +18,7 @@ function App() {
       <UserContext.Provider value={{user}}>
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/article" element={<Article />}/>
+        <Route path="/article/:id" element={<Article />}/>
         <Route path="/" element={<Login />} />
         <Route path="/topic" element={<Topic />} />
         <Route path="/users" element={<Users />} />
