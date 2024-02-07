@@ -47,6 +47,7 @@ function ShowArticle () {
                 </Col>
             </Row>
         </Container>
+        
       );
 
 };
