@@ -1,14 +1,12 @@
 import React from "react";
 import { useEffect, useState, useContext } from "react";
+import { useParams } from "react-router-dom";
+import { UserContext } from "../../../../context/userContext";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { UserContext } from "../../context/userContext";
-import { postNewComment } from "../api";
-import { useParams } from "react-router-dom";
-import CommentCard from "./CommentCard";
+import { postNewComment } from "../../../api";
 
-
-function AddComment () {
+function AddComment ({comments, setComments}) {
     const {id} = useParams();
     const { user:{username, name, avatar_url} } = useContext(UserContext);
     const [commentBody, setCommentBody] = useState("");
@@ -18,10 +16,14 @@ function AddComment () {
     function handleClick (event) {
         event.preventDefault()
 
+        console.log(comments, "original");
+
         if (commentBody !== "") {
           const input = { username: username, body: commentBody }
           postNewComment(id, input)
           .then((result) => {
+            setComments(comments => [...comments, result])
+            console.log(comments);
             setMessage("Comment loading")
             CommentCard(result).then(() => {
               console.log(result);
@@ -46,17 +48,6 @@ function AddComment () {
           </Form.Group>
         </Form>
       );
-    
 };
 
 export default AddComment;
-
-
-// comment_id
-// body 
-// article_id
-// author 
-// votes
-// created_at
-
-//takes username and body

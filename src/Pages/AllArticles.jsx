@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getArticles } from "../api";
-import ArticleCard from "../Components/ArticleCard";
+import ArticleCard from "../Components/Each_Article/ArticleCard";
 import Header from "../Components/Header";
 import '../App.css'
 

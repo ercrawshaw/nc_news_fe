@@ -2,14 +2,13 @@ import React from "react";
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import { useEffect, useState } from "react";
-import { patchArticleVote } from "../api";
+import { patchArticleVote } from "../../api";
 
-function VoteArticle ({currentArticle:{votes, article_id}}) {
+function UpdateArticleVotes ({currentArticle:{votes, article_id}}) {
     const [currentVote, setCurrentVote] = useState(votes)
     const [error, setError] = useState("")
     const [buttonPressed, setButtonPressed] = useState(false)
     const [buttonClass, setButtonClass] = useState("primary")
-    
 
     function handleSubmit (event) {
         event.preventDefault();
@@ -51,4 +50,4 @@ function VoteArticle ({currentArticle:{votes, article_id}}) {
 
 };
 
-export default VoteArticle;
+export default UpdateArticleVotes;
