@@ -41,7 +41,9 @@ export const postNewComment = (article_id, input) => {
 };
 
 
-
+export const deleteComment = (comment_id) => {
+  return ncNewsBaseUrl.delete(`/api/comments/${comment_id}`)
+}
 
   
   

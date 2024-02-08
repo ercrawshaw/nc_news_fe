@@ -1,8 +1,8 @@
 import Home from '../Pages/Home.jsx';
-import Article from '../Pages/Article.jsx';
 import Login from '../Pages/Login.jsx';
 import Topic from '../Pages/Topic.jsx';
 import Users from '../Pages/Users.jsx';
+import SingleArticle from './Each_Article/SingleArticle.jsx';
 import NoPage from '../Pages/NoPage.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
@@ -23,11 +23,11 @@ function App() {
       <UserContext.Provider value={{user}}>
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/article/:id" element={<Article />}/>
         <Route path="/" element={<Login />} />
         <Route path="/topic" element={<Topic />} />
         <Route path="/users" element={<Users />} />
         <Route path="*" element={<NoPage />} />
+        <Route path="/article/:id" element={<SingleArticle />} />
       </Routes>
       </UserContext.Provider>
     </div>

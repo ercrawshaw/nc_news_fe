@@ -1,12 +1,14 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import { getCommentsById } from "../api";
+import AddComment from "./AddComment";
 import { useEffect, useState } from "react";
+import { getCommentsById } from "../../../api";
+import { useParams } from "react-router-dom";
 import CommentCard from "./CommentCard";
 
-function ShowArticleComments () {
-    const {id} = useParams();
+
+function Comments () {
     const [comments, setComments] = useState([]);
+    const {id} = useParams();
 
     useEffect(() => {
         getCommentsById(id)
@@ -19,21 +21,24 @@ function ShowArticleComments () {
     }, [])
 
     return (
-        <section className="comment-container">
+        <div className="comments">
+            <AddComment setComments={setComments} comments={comments} />
             <article className="comment-list">
                 {comments.map((singleComment) => {
                     return (
                         
                         <CommentCard className="comment-cards"
                         singleComment={singleComment} 
+                        setComments={setComments}
+                        comments={comments}
                         />
                         
                     )
                 })}
             </article>
-        </section>
+        </div>
     )
 
 };
 
-export default ShowArticleComments;
+export default Comments;

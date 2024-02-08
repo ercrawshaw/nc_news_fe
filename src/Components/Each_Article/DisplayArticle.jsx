@@ -1,21 +1,20 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { getArticlesById } from "../api";
 import { useEffect, useState } from "react";
-import Container from 'react-bootstrap/Container';
-import VoteArticle from "./VoteArticle";
+import { getArticlesById } from "../../api";
 import dateFormat from 'dateformat';
+import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Image from 'react-bootstrap/Image';
 import Col from 'react-bootstrap/Col';
+import UpdateArticleVotes from "./UpdateArticleVotes";
+import { Navigate } from "react-router-dom";
 
-
-function ShowArticle () {
+function DisplayArticle () {
     const {id} = useParams();
     const [currentArticle, setCurrentArticle] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    
-    
+    const [error, setError] = useState(false)
 
     useEffect(() => {
         getArticlesById(id)
@@ -24,17 +23,19 @@ function ShowArticle () {
             setIsLoading(false)
         })
         .catch((err) => {
-            console.log(err)
+            setError(true)
         })
     }, []);
 
+    if (error) {
+        return <Navigate to="*" replace={true} />
+    }
+
     if (isLoading === true) return <p>Page is Loading...</p>
 
-    const date = currentArticle.created_at
-    const formattedDate = dateFormat(date, "dS mmmm yyyy")
+   
+    const formattedDate = dateFormat(currentArticle.created_at, "dS mmmm yyyy");
 
-    
-    
     return (
         <Container> 
             <Row>
@@ -58,7 +59,7 @@ function ShowArticle () {
             </Row>
             <Row>
                 <Col>
-                    <VoteArticle currentArticle={currentArticle} />
+                    <UpdateArticleVotes currentArticle={currentArticle} />
                 </Col>
             </Row>
         </Container>
@@ -67,4 +68,4 @@ function ShowArticle () {
 
 };
 
-export default ShowArticle;
+export default DisplayArticle;
