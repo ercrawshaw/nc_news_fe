@@ -3,15 +3,19 @@ import { useParams } from "react-router-dom";
 import { getArticlesById } from "../api";
 import { useEffect, useState } from "react";
 import Container from 'react-bootstrap/Container';
+import VoteArticle from "./VoteArticle";
 import dateFormat from 'dateformat';
 import Row from 'react-bootstrap/Row';
 import Image from 'react-bootstrap/Image';
 import Col from 'react-bootstrap/Col';
 
+
 function ShowArticle () {
     const {id} = useParams();
     const [currentArticle, setCurrentArticle] = useState([]);
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true);
+    
+    
 
     useEffect(() => {
         getArticlesById(id)
@@ -28,9 +32,11 @@ function ShowArticle () {
 
     const date = currentArticle.created_at
     const formattedDate = dateFormat(date, "dS mmmm yyyy")
+
+    
     
     return (
-        <Container>
+        <Container> 
             <Row>
                 <Col>
                     <h1>{currentArticle.title}</h1>
@@ -48,6 +54,11 @@ function ShowArticle () {
             <Row>
                 <Col>
                     <p>{currentArticle.body}</p>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <VoteArticle currentArticle={currentArticle} />
                 </Col>
             </Row>
         </Container>
