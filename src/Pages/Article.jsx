@@ -3,6 +3,7 @@ import Header from "../Components/Header";
 import NavBar from "../Components/NavBar";
 import ShowArticle from "../Components/ShowArticle";
 import ShowArticleComments from "../Components/ShowArticleComments";
+import AddComment from "../Components/AddComment";
 
 
 function Article () {
@@ -11,6 +12,7 @@ function Article () {
       <Header />
       <NavBar />
       <ShowArticle />
+      <AddComment />
       <ShowArticleComments />
 
     </div>
