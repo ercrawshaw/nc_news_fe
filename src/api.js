@@ -2,10 +2,17 @@ import axios from "axios";
 
 const ncNewsBaseUrl = axios.create({ baseURL: "https://nc-news-smxe.onrender.com"});
 
-export const getArticles = () => {
-    return ncNewsBaseUrl.get("/api/articles").then((response) => {
+export const getArticles = (topic) => {
+    if (topic) {
+      return ncNewsBaseUrl.get(`/api/articles?topic=${topic}`)
+      .then((response) => {
+        return response.data.articles
+      })
+    }else{
+      return ncNewsBaseUrl.get("/api/articles").then((response) => {
         return response.data.articles
     })
+    }
 };
 
 export const getArticlesById = (articleId) => {
@@ -44,6 +51,7 @@ export const postNewComment = (article_id, input) => {
 export const deleteComment = (comment_id) => {
   return ncNewsBaseUrl.delete(`/api/comments/${comment_id}`)
 }
+
 
   
   

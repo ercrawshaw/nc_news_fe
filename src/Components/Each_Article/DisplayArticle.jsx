@@ -9,6 +9,7 @@ import Image from 'react-bootstrap/Image';
 import Col from 'react-bootstrap/Col';
 import UpdateArticleVotes from "./UpdateArticleVotes";
 import { Navigate } from "react-router-dom";
+import LoadingMessage from "../Loading/LoadingMessage";
 
 function DisplayArticle () {
     const {id} = useParams();
@@ -31,7 +32,7 @@ function DisplayArticle () {
         return <Navigate to="*" replace={true} />
     }
 
-    if (isLoading === true) return <p>Page is Loading...</p>
+    if (isLoading === true) return <LoadingMessage />
 
    
     const formattedDate = dateFormat(currentArticle.created_at, "dS mmmm yyyy");
