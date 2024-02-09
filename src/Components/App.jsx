@@ -8,9 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { useState } from 'react';
 import { UserContext } from '../../context/userContext.jsx';
-import FootballPage from '../Pages/FootballPage.jsx';
-import CodingPage from '../Pages/CodingPage.jsx';
-import CookingPage from '../Pages/CookingPage.jsx';
+import TopicPage from '../Pages/TopicPage.jsx';
 
 
 function App() {
@@ -31,9 +29,7 @@ function App() {
         <Route path="/users" element={<Users />} />
         <Route path="*" element={<NoPage />} />
         <Route path="/article/:id" element={<SingleArticle />} />
-        <Route path="/article/topic/football" element={<FootballPage />} />
-        <Route path="/article/topic/coding" element={<CodingPage />} />
-        <Route path="/article/topic/cooking" element={<CookingPage />} />
+        <Route path="/article/topic/:topic" element={<TopicPage />} />
       </Routes>
       </UserContext.Provider>
     </div>

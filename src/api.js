@@ -15,6 +15,8 @@ export const getArticles = (topic) => {
     }
 };
 
+
+
 export const getArticlesById = (articleId) => {
   return ncNewsBaseUrl.get(`/api/articles/${articleId}`).then((response) => {
     return response.data
@@ -51,6 +53,16 @@ export const postNewComment = (article_id, input) => {
 export const deleteComment = (comment_id) => {
   return ncNewsBaseUrl.delete(`/api/comments/${comment_id}`)
 }
+
+export const getArticlesByTopic = ({topic, sortBy, orderBy}) => {
+  
+    return ncNewsBaseUrl.get(`/api/${topic}?sort_by=${sortBy} ${orderBy}`)
+    .then((response) => {
+      //console.log(response.data);
+      return response.data
+    })
+  
+};
 
 
   

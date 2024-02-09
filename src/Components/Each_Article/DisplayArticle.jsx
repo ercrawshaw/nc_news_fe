@@ -17,6 +17,8 @@ function DisplayArticle () {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(false)
 
+    console.log(currentArticle);
+
     useEffect(() => {
         getArticlesById(id)
         .then((res) => {
