@@ -12,13 +12,19 @@ function AddComment ({comments, setComments}) {
     const [commentBody, setCommentBody] = useState("");
     const [placholderBody, setPlaceholderBody] = useState("Insert comment...")
     const [message, setMessage] = useState("Post a Comment")
+    const [errorMessage, setErrorMessage] = useState("")
 
     function handleClick (event) {
         event.preventDefault()
 
         console.log(comments, "original");
 
+        if (commentBody === "") {
+          setErrorMessage("You need to write a comment")
+        }
+
         if (commentBody !== "") {
+          setErrorMessage("")
           const input = { username: username, body: commentBody }
           postNewComment(id, input)
           .then((result) => {
@@ -44,6 +50,7 @@ function AddComment ({comments, setComments}) {
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
             <Form.Label>{message}</Form.Label>
             <Form.Control as="textarea" rows={3} value={commentBody} placeholder={placholderBody} onChange={(e) => setCommentBody(e.target.value)}/>
+            <p>{errorMessage}</p>
             <Button type="submit" onClick={handleClick}>Submit Comment</Button>
           </Form.Group>
         </Form>
