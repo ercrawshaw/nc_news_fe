@@ -25,13 +25,13 @@ function ArticlesList() {
 return (
     <section className="article-container">
         <article className="article-list">
-            {articles.map((singleArticle) => {
+            {articles.map((singleArticle, i) => {
                 return (
-                    
+                    <li key={i}>
                     <ArticleCard className="cards"
                     singleArticle={singleArticle}
                     />
-                    
+                    </li>
                 )
             })}
         </article>

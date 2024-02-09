@@ -24,15 +24,15 @@ function Comments () {
         <div className="comments">
             <AddComment setComments={setComments} comments={comments} />
             <article className="comment-list">
-                {comments.map((singleComment) => {
+                {comments.map((singleComment, i) => {
                     return (
-                        
+                        <li key={i}>
                         <CommentCard className="comment-cards"
                         singleComment={singleComment} 
                         setComments={setComments}
                         comments={comments}
                         />
-                        
+                        </li>
                     )
                 })}
             </article>
