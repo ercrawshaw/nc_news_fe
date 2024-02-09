@@ -3,13 +3,15 @@ import { Link } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
+import dateFormat from 'dateformat';
 
 
 
 
 function ArticleCard({singleArticle}) {
+
     
-    
+  const formattedDate = dateFormat(singleArticle.created_at, "dS mmmm yyyy");
 
     return (
         <Card className="articleCard" style={{ width: '18rem' }}>
@@ -20,6 +22,7 @@ function ArticleCard({singleArticle}) {
           <ListGroup className="article-info">
             <ListGroup.Item>Author: {singleArticle.author}</ListGroup.Item>
             <ListGroup.Item>Topic: {singleArticle.topic}</ListGroup.Item>
+            <ListGroup.Item>{formattedDate}</ListGroup.Item>
           </ListGroup>
           <Card.Body>
             <Link to={`/article/${singleArticle.article_id}`}>
