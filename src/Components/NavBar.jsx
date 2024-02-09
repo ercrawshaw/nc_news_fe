@@ -14,9 +14,17 @@ function NavBar () {
   
     if (location.match(regex)) {
       location = "ARTICLE"
+    };
+
+    if (location === "*") {
+      location = "ERROR"
     }
 
-   
+    const validLocations = ['HOME', 'ARTICLE', 'CODING', 'FOOTBALL', 'COOKING', 'ERROR', 'USERS'];
+
+    if (!validLocations.includes(location)) {
+      location = "ERROR"
+    }
 
 
     return (
