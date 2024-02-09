@@ -20,9 +20,9 @@ function ArticleCard({singleArticle}) {
             <Card.Title>{singleArticle.title}</Card.Title>
           </Card.Body>
           <ListGroup className="article-info">
-            <ListGroup.Item>Author: {singleArticle.author}</ListGroup.Item>
-            <ListGroup.Item>Topic: {singleArticle.topic}</ListGroup.Item>
-            <ListGroup.Item>{formattedDate}</ListGroup.Item>
+            <ListGroup.Item key="article-card-author">Author: {singleArticle.author}</ListGroup.Item>
+            <ListGroup.Item key="article-card-topic">Topic: {singleArticle.topic}</ListGroup.Item>
+            <ListGroup.Item key="article-card-date">{formattedDate}</ListGroup.Item>
           </ListGroup>
           <Card.Body>
             <Link to={`/article/${singleArticle.article_id}`}>

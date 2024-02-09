@@ -9,7 +9,9 @@ import UpdateCommentVote from "./UpdateCommentVotes";
 import DeleteComment from "./DeleteComment";
 
 
-function CommentCard ({singleComment, comments, setComments}) {
+function CommentCard ({singleComment, comments, setComments},) {
+
+  
     const {id} = useParams();
     const { user:{username} } = useContext(UserContext);
     const date = singleComment.created_at;
