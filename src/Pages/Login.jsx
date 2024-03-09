@@ -8,7 +8,7 @@ import Row from 'react-bootstrap/Row';
 
 const Login = () => {
 
-  document.title = "NC News | Login"
+  document.title = "NC News | "
 
     return (
       <Container>

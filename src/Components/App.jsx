@@ -24,7 +24,7 @@ function App() {
       <UserContext.Provider value={{user}}>
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Home />} />
         <Route path="/topic" element={<Topic />} />
         <Route path="/users" element={<Users />} />
         <Route path="*" element={<NoPage />} />
