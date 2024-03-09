@@ -1,8 +1,41 @@
-# React + Vite
+# NorthCoders Front-End
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+This is the backend to the Northcoder News App project. The front-end can be found here:
+https://github.com/ercrawshaw/nc_news.git
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This application presents a page of news article cards to the user which can be viewed by topic and sorted by votes, timestamp and comment count. When an article card is chosen the user can view the entire article, vote on it, comment on it and view other users comments.
+
+For this project I used react, axios, bootstrap and netlify.
+
+## How to Install
+
+To run the project locally:
+
+clone the repo here https://github.com/ercrawshaw/nc_news_fe.git in the terminal:
+
+```
+$ git clone https://github.com/ercrawshaw/nc_news_fe.git
+```
+
+then navigate to the repo:
+
+```
+$ cd nc_news_fe
+```
+
+and install all the dependencies:
+
+```
+$ npm i
+```
+
+Minimum Node version: 6.9.0
+
+Link to deployed version: https://northcodernewsellec.netlify.app/home
+
+
+## Credits
+
+This app was built by Elle Crawshaw during Northcoders Boot Camp
