@@ -24,7 +24,7 @@ function ArticlesList() {
     
 return (
     <section className="article-container">
-        <article className="article-list">
+        <article className="article-grid">
             {articles.map((singleArticle, i) => {
                 return (
                     <li key={i}>
